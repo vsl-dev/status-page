@@ -1,0 +1,25 @@
+{
+	"refresh_time": "300000",
+	"links": {
+		"1": {
+			"link_id": "1",
+			"link": "https://vslapi.cf"
+		},
+		"2": {
+			"link_id": "2",
+			"link": "https://vsldev.tk"
+		},
+		"3": {
+			"link_id": "3",
+			"link": "https://dispaste.ml"
+		},
+		"4": {
+			"link_id": "4",
+			"link": "https://wisi.ml"
+		},
+		"5": {
+			"link_id": "5",
+			"link": "https://uptime.vsldev.tk"
+		}
+	}
+}

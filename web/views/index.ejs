@@ -1,0 +1,77 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="github.com/vsl-dev, vsldev.tk">
+<meta property="og:site_name" content="Status Website By vsl-dev">
+<meta name="keywords" content="discord, status, uptime, vsldev">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Status page website by github.com/vsl-dev">
+<meta name="theme-color" content="#D1D8EC">
+<meta property="og:image" content="https://cdn.vsldev.tk/images/IXr8X2GU65cNGGStu94g.png">
+<link rel="icon" type="image/png" href="https://cdn.vsldev.tk/images/IXr8X2GU65cNGGStu94g.png">
+
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta2/css/all.css">
+<link href="style.css" rel="stylesheet">
+<title>VSL Status Page</title>
+</head>
+<body>
+<script src="script.js"></script>
+<!-- Loading -->
+<div id="loading_wrapper">
+  <div class="loading">
+  <center>
+   <p style="font-size: 27px; color: black;"><i class="fas fa-spinner fa-spin"></i> Loading...</p>
+	</center>
+  </div>
+</div>
+
+<center>
+<div class="head">
+	<img class="unselectable" src="https://cdn.vsldev.tk/images/IXr8X2GU65cNGGStu94g.png" width="150">
+	<h1>Status Page</h1>
+	<h3>Status of all sites belonging to vsldev.tk</h3>
+	<h4><a style="text-decoration: none; color: black;" target="_blank" href="https://github.com/vsl-dev/status-page">Click for projects code source <i class="fa-brands fa-github"></i></a></h4>
+</div>
+</center>
+<center>
+	<div class="status__page">
+		<center>
+			<h1 style="margin: 0; padding: 0 0 10px 0;">Websites</h1>
+		</center>
+		<div class="container">
+		<% vsl.forEach((x) => { %>
+		<div class="card" id="url">
+			<% if(db.fetch(`requests.${x.link_id}`)) { %>
+			<% if(db.fetch(`requests.${x.link_id}`).error == false) { %>
+			<p><span style="font-size: 1.17em; font-weight: bold;"><% if(db.fetch(`requests.${x.link_id}`).status_code == 200) { %><i style="color: green;" class="fa-solid fa-circle-check"></i> <a target="_blank" href="<%= x.link %>" style="text-decoration: none; color: black;"><%= x.link %></a></span></p><% } else { %><i style="color: red;" class="fa-solid fa-circle-exclamation"></i> <a target="_blank" href="<%= x.link %>" style="text-decoration: none; color: black;"><%= x.link %></a></span></p>
+			
+<% }} else { %><p><span style="font-size: 1.17em; font-weight: bold;"><i style="color: #eb8900;" class="fa-solid fa-triangle-exclamation"></i> <a href="<%= x.link %>" style="text-decoration: none; color: black;"><%= x.link %></a></span></p><% } %>
+
+			<% } else { %>
+					
+				<% } %>
+		</div>
+
+<div class="container" style="padding: 0 0 0 20px;">
+<% log.fetch(`${x.link_id}`).slice(-46).reverse().forEach((a) => { %>
+<% if((a.error == true) == false) { %>
+<% if(a.status_code == 200) { %><div style="background-color: green;" class="status tooltip"><span class="tooltiptext">Status: Online!<br><span style="font-size: 0.5em;">Last Control: <%= moment(a.last_req).from() %></span></span></div><% } else { %><div style="background-color: red;" class="status tooltip"><span class="tooltiptext">Status: Offline!<br><span style="font-size: 0.5em;">Last Control: <%= moment(a.last_req).from() %></span></span></div><% }} else { %>
+<div style="background-color: orange;" class="status tooltip"><span class="tooltiptext">Status: Degraded!<br><span style="font-size: 0.5em;">Last Control: <%= moment(a.last_req).from() %></span></span></div>
+<% } %>
+<% }) %>
+			</div>	
+
+		<% }) %>
+		</div>
+	</div>
+</center>
+<br><br><br>			
+			
+<footer class="footer">
+<h4><a href="https://github.com/vsl-dev">Created by vsl-dev</a></h4>
+</footer>
+<br>
+</body>
+</html>
+
+			

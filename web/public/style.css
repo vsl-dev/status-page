@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+body {
+	background-color: #D1D8EC;
+	font-family: 'Nunito', sans-serif;
+	transition: .25s;
+}
+
+.unselectable {
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.head {
+	margin: 70px 0 0 0;
+	padding: 20px;
+	width: 70%;
+	height: auto!important;
+	border-radius: 20px;
+	background: #D1D8EC;
+	box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+	transition: .25s;
+}
+
+.status__page {
+	margin: 70px 0 0 0;
+	padding: 25px;
+	width: 70%;
+	height: auto!important;
+	border-radius: 20px;
+	background: #D1D8EC;
+	box-shadow: 12px 12px 24px #b2b8c9, -12px -12px 24px #f0f8ff;
+	transition: .25s;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+.card {
+  padding: 20px 0 0 25px; 
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.card:nth-child(1) {
+	padding: 0 0 0 25px;
+}
+
+.status {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	width: 10px;
+	height: 28px;
+	background-color: gray;
+	border-radius: 3px;
+	padding: 3px;
+	margin: 3px;
+	transition: .25s;
+}
+
+.status:hover {
+	transition: .25s;
+	transform: translateY(-3px);
+}
+
+.footer {
+	text-align: center;
+}
+
+.footer a {
+	color: black;
+	text-decoration: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  opacity: 95%;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 120%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* Loading */
+
+#loading_wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  transition: .25s ease;
+  z-index: 9999;
+}
+
+#loading_wrapper p {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .25s ease;
+  z-index: 99999;
+}
+
+@media only screen and (max-width: 600px), (max-width: 700px), (max-width: 800px), (max-width: 900px) {
+
+.status {
+	cursor: pointer;
+	display: flex;
+	flex-direction: row;
+	width: 3px;
+	height: 18px;
+	background-color: gray;
+	border-radius: 3px;
+	padding: 3px;
+	margin: 1px;
+	transition: .25s;
+}
+	
+}
