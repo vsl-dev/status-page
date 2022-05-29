@@ -53,6 +53,7 @@
 		</div>
 
 <div class="container" style="padding: 0 0 0 20px;">
+<% if((log.fetch(`${x.link_id}`) == null) == false) { %>
 <% log.fetch(`${x.link_id}`).slice(-46).reverse().forEach((a) => { %>
 <% if((a.error == true) == false) { %>
 <% if(a.status_code == 200) { %><div style="background-color: green;" class="status tooltip"><span class="tooltiptext">Status: Online!<br><span style="font-size: 0.5em;">Last Control: <%= moment(a.last_req).from() %></span></span></div><% } else { %><div style="background-color: red;" class="status tooltip"><span class="tooltiptext">Status: Offline!<br><span style="font-size: 0.5em;">Last Control: <%= moment(a.last_req).from() %></span></span></div><% }} else { %>
@@ -60,7 +61,9 @@
 <% } %>
 <% }) %>
 			</div>	
-
+<% } else { %>
+Loading...
+<% } %>
 		<% }) %>
 		</div>
 	</div>
